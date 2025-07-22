@@ -1,0 +1,38 @@
+---
+alwaysApply: true
+---
+
+# 4. 프로젝트 구조 규칙 (Project Structure Convention)
+
+본 프로젝트는 코드와 문서의 가독성, 유지보수성, 확장성을 높이기 위해 다음과 같은 표준 디렉토리 구조를 따릅니다.
+
+## 전체 구조
+
+- **[app](mdc:app/)**: FastAPI 소스 코드
+  - **[api](mdc:app/api/)**: API 라우터 (엔드포인트)
+  - **[core](mdc:app/core/)**: 핵심 로직 및 설정
+  - **[schemas](mdc:app/schemas/)**: Pydantic 스키마
+  - **[services](mdc:app/services/)**: 비즈니스 로직
+- **[docs](mdc:docs/)**: 프로젝트 문서
+  - **[apis](mdc:docs/apis/)**: API 상세 명세
+  - **[ops](mdc:docs/ops/)**: 운영 관련 문서
+- **[rules](mdc:rules/)**: 프로젝트 규칙 및 정책
+- **[tests](mdc:tests/)**: 테스트 코드
+- **[.env.example](mdc:.env.example)**: 환경 변수 템플릿
+- **[pyproject.toml](mdc:pyproject.toml)**: 의존성 및 프로젝트 설정
+- **[README.md](mdc:README.md)**: 프로젝트 개요 및 진입점
+
+## 디렉토리별 역할
+
+- **`app/`**: 실제 FastAPI 애플리케이션의 모든 소스 코드가 위치합니다.
+  - `app/api/`: 엔드포인트 정의. 각 라우터 파일은 특정 리소스(e.g., `documents.py`, `query.py`)를 기준으로 분리합니다.
+  - `app/services/`: 실제 비즈니스 로직을 구현하는 서비스 계층. RAG 파이프라인, 문서 처리 로직 등이 포함됩니다.
+  - `app/schemas/`: Pydantic 모델을 정의하여 API 요청/응답의 데이터 형태와 유효성을 관리합니다.
+  - `app/core/`: 설정(config), Celery 워커 정의 등 프로젝트의 핵심 구성 요소가 위치합니다.
+- **`docs/`**: 모든 프로젝트 관련 문서를 관리합니다.
+  - `docs/apis/`: Postman이나 Swagger와 같이 API의 상세한 사용법을 설명하는 명세서 그룹입니다.
+  - `docs/ops/`: 배포, 테스트, 모니터링 등 서비스 운영 및 관리에 필요한 문서를 모아둡니다.
+- **`rules/`**: 이 프로젝트를 개발하고 운영하는 데 필요한 핵심 규칙과 정책을 문서화하여 저장합니다.
+- **`tests/`**: `pytest`를 사용하여 작성된 테스트 코드를 저장합니다. `app` 디렉토리의 구조를 유사하게 따라가며 테스트 파일을 구성합니다.
+
+이 구조를 따름으로써, 새로운 파일을 추가하거나 기존 코드를 찾을 때 예측 가능성을 높이고 협업을 용이하게 합니다.

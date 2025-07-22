@@ -1,0 +1,19 @@
+[project]
+name = "rag-service"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "yunsubin",email = "yunsubin481@gmail.com"}
+]
+readme = "README.md"
+requires-python = "^3.13"
+dependencies = [
+    "fastapi[all] (>=0.116.1,<0.117.0)",
+    "pydantic-settings (>=2.10.1,<3.0.0)",
+    "celery[redis] (>=5.5.3,<6.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,33 @@
+# 5. MCP Context7 활용 규칙 (MCP Context7 Usage Rule)
+
+본 프로젝트는 AI의 잠재적으로 오래된 학습 데이터에 의존하는 것을 방지하고, 항상 최신 기술 정보를 기반으로 개발하기 위해 **MCP Context7**의 활용을 최우선 원칙으로 삼는다.
+
+## 핵심 원칙
+
+> **"구현에 앞서, 문서를 먼저 조회하라 (Look up the docs before implementing)"**
+
+새로운 라이브러리, 프레임워크, 또는 기술을 사용하여 기능을 구현해야 할 경우, 코드 작성을 시작하기 전에 반드시 `mcp_Context7` 관련 도구를 사용하여 공식 문서를 조회하고 이해해야 한다.
+
+## 실행 절차 (Execution Process)
+
+1.  **라이브러리 ID 확인 (`resolve_library_id`)**:
+
+    - 사용할 기술의 정확한 라이브러리 ID를 확인하기 위해, 먼저 `mcp_Context7_resolve_library_id`를 호출한다.
+    - **예시**: `fastapi-users` 라이브러리를 사용해야 할 경우, `libraryName: "fastapi-users"`로 조회한다.
+
+2.  **문서 조회 (`get_library_docs`)**:
+
+    - 1단계에서 얻은 `context7CompatibleLibraryID`를 사용하여 `mcp_Context7_get_library_docs`를 호출한다.
+    - **예시**: 특정 주제(e.g., 'authentication backend')에 대한 문서나 기본적인 사용법(`getting started`)을 요청하여 기술의 핵심 개념과 사용법을 파악한다.
+
+3.  **구현 (Implementation)**:
+    - 2단계에서 얻은 최신 문서 정보를 바탕으로 실제 코드 구현을 시작한다.
+
+## 관련 규칙
+
+- 이 규칙은 [개발 원칙 및 방법론](mdc:.cursor/rules/development_principles.mdc)에서 정의한 **"MCP context7 활용"** 원칙의 구체적인 실행 가이드이다.
+  description:
+  globs:
+  alwaysApply: false
+
+---
